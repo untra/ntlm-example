@@ -31,8 +31,7 @@ Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 
 # Enable Windows NTLM Auth
 
-dir c:\
-dir c:\windows\system32
+dir C:\Windows\System32\inetsrv
 
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
 SET PATH=%PATH%;C:\Windows\System32\inetsrv
