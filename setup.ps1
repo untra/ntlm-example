@@ -1,8 +1,10 @@
-$CertName = "site_cert.pfx" # todo is this right name?
-$fqdn = "" # ipaddr of runner?
-$Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName $fqdn
+$certName = "site_cert.pfx" # todo is this right name?
+$certificateDnsName = "my.localcert.ssl" # ipaddr of runner?
+# create the ssl certificate that will expire in 2 years
+$newCert = New-SelfSignedCertificate -DnsName $certificateDnsName -CertStoreLocation cert:\LocalMachine\My -NotAfter (Get-Date).AddYears(2)
+echo "Certificate Details:`r`n`r`n $newCert"
 
-Export-Certificate -Cert $Cert -FilePath C:\temp\$CertName
+# Export-Certificate -Cert $Cert -FilePath C:\temp\$certName
 
 Enable-PSRemoting -SkipNetworkProfileCheck -Force
 
@@ -28,9 +30,4 @@ Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
 appcmd set config /section:windowsAuthentication /-providers.[value='Negotiate']
-
-
-
-
-
 
