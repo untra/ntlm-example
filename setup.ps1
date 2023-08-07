@@ -35,6 +35,6 @@ dir c:\
 dir c:\windows\system32
 
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
-SET PATH=%PATH%;c:\windows\system32\inetsrv\
+SET PATH=%PATH%;C:\Windows\System32\inetsrv
 appcmd set config /section:windowsAuthentication /-providers.[value='Negotiate']
 
