@@ -32,6 +32,6 @@ Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 # Enable Windows NTLM Auth
 
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
-SET PATH=%PATH%;D:\system32\inetsrv\
+SET PATH=%PATH%;D:\windows\system32\inetsrv\
 appcmd set config /section:windowsAuthentication /-providers.[value='Negotiate']
 
