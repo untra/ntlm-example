@@ -1,7 +1,7 @@
 # -- stackhawk configuration for Crappy app --
 app:
   # -- An applicationId obtained from the StackHawk platform. --
-  applicationId: d1e866e0-528d-44ec-955f-8e7fd3686b9d
+  applicationId: ${APP_ID:4842640b-0f11-4b70-ae2a-ec3e38c132c3}
   # -- The environment for the applicationId defined in the StackHawk platform. --
   env: Development # (required)
   # -- The url of your application to scan --
