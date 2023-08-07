@@ -1,4 +1,4 @@
-$CertName = "ntlm-cert-self-signed.p12" # todo is this right name?
+$CertName = "site_cert.pfx" # todo is this right name?
 $fqdn = "" # ipaddr of runner?
 $Cert = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName $fqdn
 
@@ -23,3 +23,14 @@ New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "W
 
 # For security reasons, you might want to disable the firewall rule for HTTP that *Enable-PSRemoting* added:
 Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
+
+# Enable Windows NTLM Auth
+
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
+appcmd set config /section:windowsAuthentication /-providers.[value='Negotiate']
+
+
+
+
+
+
