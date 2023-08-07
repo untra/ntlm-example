@@ -30,9 +30,6 @@ New-NetFirewallRule -DisplayName "Windows Remote Management (HTTPS-In)" -Name "W
 Disable-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)"
 
 # Enable Windows NTLM Auth
-
-dir C:\Windows\System32\inetsrv
-
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
 C:\Windows\System32\inetsrv\appcmd.exe set config /section:windowsAuthentication /enabled:true
 
