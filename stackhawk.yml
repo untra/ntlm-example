@@ -1,0 +1,29 @@
+# -- stackhawk configuration for Crappy app --
+app:
+  # -- An applicationId obtained from the StackHawk platform. --
+  applicationId: d1e866e0-528d-44ec-955f-8e7fd3686b9d
+  # -- The environment for the applicationId defined in the StackHawk platform. --
+  env: Development # (required)
+  # -- The url of your application to scan --
+  host: http://localhost:8080 # (required)
+  authentication:
+    antiCsrfParam: "__RequestVerificationToken"
+    loggedInIndicator: "\\QWINDEV2302EVAL\\E"
+    loggedOutIndicator: ".HTTP.*500.*"
+    usernamePassword:
+      usernameField: user
+      passwordField: password
+      loginPath: /
+      type: HTTP
+      scanUsername: "User"
+      scanPassword: "hawkward"
+    tokenAuthorization:
+      type: HEADER
+      value: Authorization
+      tokenType: NTLM
+    testPath:
+      path: /privacy
+      success: "HTTP.*200.*"
+# -- Help Section --
+  # Docs: https://docs.stackhawk.com/
+  # Contact Support: support@stackhawk.com
