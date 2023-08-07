@@ -14,6 +14,9 @@ dir wsman:\localhost\listener
 # If HTTP Listeners exist, remove them
 Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTP" | Remove-Item -Recurse
 
+# If HTTPS Listeners exist, remove them
+Get-ChildItem WSMan:\Localhost\listener | Where -Property Keys -eq "Transport=HTTPS" | Remove-Item -Recurse
+
 # If HTTPs Listeners don't exist, add one
 New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint –Force
 
