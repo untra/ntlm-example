@@ -1,8 +1,8 @@
 $certName = "site_cert.pfx" # todo is this right name?
 $certificateDnsName = "my.localcert.ssl" # ipaddr of runner?
 # create the ssl certificate that will expire in 2 years
-$newCert = New-SelfSignedCertificate -DnsName $certificateDnsName -CertStoreLocation cert:\LocalMachine\My -NotAfter (Get-Date).AddYears(2)
-echo "Certificate Details:`r`n`r`n $newCert"
+$Cert = New-SelfSignedCertificate -DnsName $certificateDnsName -CertStoreLocation cert:\LocalMachine\My -NotAfter (Get-Date).AddYears(2)
+echo "Certificate Details:`r`n`r`n $Cert"
 
 # Export-Certificate -Cert $Cert -FilePath C:\temp\$certName
 
