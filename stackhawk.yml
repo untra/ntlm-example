@@ -6,6 +6,10 @@ app:
   env: ${APP_ENV:dev} # (required)
   # -- The url of your application to scan --
   host: http://localhost:8080 # (required)
+  waitForAppTarget:
+    path: /
+    waitTimeoutMillis: 200000
+    pollDelay: 6000
   authentication:
     antiCsrfParam: "__RequestVerificationToken"
     loggedInIndicator: "\\QWINDEV2302EVAL\\E"
